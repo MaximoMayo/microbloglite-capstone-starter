@@ -14,17 +14,17 @@
         crossorigin="anonymous"></script>
 
     <!-- Global CSS (CSS rules you want applied to all pages) -->
-    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="styles/global.css">
 
     <!-- Page-specific CSS -->
-    <link rel="stylesheet" href="./posts.css">
+    <link rel="stylesheet" href="styles/posts.css">
 
     <title>/POSTS</title>
 
     <!-- Run BEFORE page is finished loading (before window.onload): -->
-    <script src="../auth.js"></script>
+    <script src="scripts/auth.js"></script>
     <script>
-        if (isLoggedIn() === false) window.location.replace("/");
+        if (isLoggedIn() === false) window.location.replace("index.html");
     </script>
 </head>
 <body>
@@ -33,11 +33,20 @@
         <h1>POSTS PAGE</h1>
     </header>
 
-    <main></main>
+    <main id="postDisplay" class="">
+        <div class="card w-50">
+            <img class="card-img-top w-100 px-5" src="https://i.pinimg.com/736x/af/01/39/af0139635034fe63770038f11c4793dd.jpg" alt="Title" />
+            <div class="card-body">
+                <h4 class="card-title">Post</h4>
+                <p class="card-text">This is the text for the post</p>
+            </div>
+        </div>
+        
+    </main>
 
-    <footer></footer>
+    <footer class="footer sticky ">Okay</footer>
 
     <!-- Page-specific code -->
-    <script src="./posts.js"></script>
+    <script src="scripts/posts.js"></script>
 </body>
 </html>
