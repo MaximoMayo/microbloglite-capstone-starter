@@ -4,4 +4,4 @@ Don't forget to read the [*MicroblogLite* API docs](http://microbloglite.us-east
 
 Practice and experimentation provide experience, and experience provides confidence.
 
-![Screenshot](https://github.com/MaximoMayo/microbloglite-capstone-starter/images/1.png)
+![Screenshot](https://github.com/MaximoMayo/Main/microbloglite-capstone-starter/images/1.png)
