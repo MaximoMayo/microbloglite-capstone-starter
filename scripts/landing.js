@@ -2,7 +2,9 @@
 
 "use strict";
 
-const loginForm = document.querySelector("#login");
+const loginForm = document.getElementById("loginForm");
+const registerForm = document.getElementById("registerForm");
+const imageOne = document.getElementById("header");
 
 loginForm.onsubmit = function (event) {
     // Prevent the form from refreshing the page,
@@ -54,3 +56,51 @@ async function login (loginData) {
             return loginData;
         });
 }
+
+registerForm.onsubmit = function(event) {
+    event.preventDefault();
+
+    const loginData = {
+        username: registerForm.newUser.value,
+        fullName: "Grunk",
+        password: registerForm.newPassword.value,
+    }
+
+    console.log(loginData.username);
+    console.log(loginData.password);
+
+    registerUser(loginData);
+}
+
+async function registerUser(loginData) {
+  
+    try {
+      const response = await fetch('http://microbloglite.us-east-2.elasticbeanstalk.com/api/users', {
+        method: 'POST',
+        headers: {
+          'accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(loginData)
+      });
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      console.log("User created:", data);
+      
+      // After creating the user, log in with the new credentials
+    } catch (error) {
+      console.error('Error creating user:', error);
+    }
+}
+
+const clickSound = new Audio ("sounds/trumpet.mp3");
+clickSound.volume = .3;
+
+imageOne.addEventListener("click", function(){
+  console.log("You're not allowed here! I will notify the council!");
+  clickSound.play();
+});

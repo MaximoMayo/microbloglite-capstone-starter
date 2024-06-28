@@ -30,21 +30,46 @@
 <body>
 
     <header>
-        <h1>POSTS PAGE</h1>
+        <h1><a href="#">Bite Your Tongue</a></h1>
+        <nav>
+            <ul>
+                <li><a href="#">Yonder the fields</a></li>
+                <li><a href="#">Send Letter</a></li>
+                <li><button id="profileBtn">Profile</button></li>
+                <li><button id="logoutBtn">Logout</button></li>
+            </ul>
+        </nav>
     </header>
 
-    <main id="postDisplay" class="">
-        <div class="card w-50">
-            <img class="card-img-top w-100 px-5" src="https://i.pinimg.com/736x/af/01/39/af0139635034fe63770038f11c4793dd.jpg" alt="Title" />
-            <div class="card-body">
-                <h4 class="card-title">Post</h4>
-                <p class="card-text">This is the text for the post</p>
-            </div>
-        </div>
+    <main id="postDisplay">
+        <section id="trending">
+            <ul>
+                <h3>Trending</h3>
+                <li id="tags">They no longer like us</li>
+                <li id="tags">Disrespecting the law</li>
+                <li id="tags">He called himself Alex</li>
+                <li id="tags">Kick is the new black plague</li>
+                <div></div>
+            </ul>
+        </section>
+
+        <section>
+            <ul>
+                <h3>Upcoming Dates</h3>
+                <li id="tags">They no longer like us</li>
+                <li id="tags">Disrespecting the law</li>
+                <li id="tags">He called himself Alex</li>
+                <li id="tags">Kick is the new black plague</li>
+                <div></div>
+            </ul>
+        </section>
+        
         
     </main>
 
-    <footer class="footer sticky ">Okay</footer>
+    <footer id="footer">
+        okay
+    </footer>
 
     <!-- Page-specific code -->
     <script src="scripts/posts.js"></script>

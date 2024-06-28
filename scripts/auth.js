@@ -14,7 +14,8 @@ const apiBaseURL = "http://microbloglite.us-east-2.elasticbeanstalk.com";
 // and token, or an empty object if the visitor is not logged in.
 function getLoginData () {
     const loginJSON = window.localStorage.getItem("login-data");
-    return JSON.parse(loginJSON) || {};
+    let convertJSON = JSON.parse(loginJSON) || {}
+    return convertJSON;
 }
 
 
@@ -22,6 +23,7 @@ function getLoginData () {
 // logged in. It returns either `true` or `false`.
 function isLoggedIn () {
     const loginData = getLoginData();
+    console.log(loginData);
     return Boolean(loginData.token);
 }
 

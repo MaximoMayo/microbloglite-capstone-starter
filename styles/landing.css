@@ -1,1 +1,215 @@
 /* Landing Page CSS */
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
+
+/*General */
+body{
+    overflow: hidden;
+    font-family: "UnifrakturCook", cursive;
+    font-weight: 700;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #e5e5f7;
+    opacity: 1;
+    background-image:  repeating-linear-gradient(45deg, #444cf7 25%, transparent 25%, transparent 75%, #444cf7 75%, #444cf7), repeating-linear-gradient(45deg, #444cf7 25%, #e5e5f7 25%, #e5e5f7 75%, #444cf7 75%, #444cf7);
+    background-position: 0 0, 10px 10px;
+    background-size: 20px 20px;
+}
+
+#header{
+    position: relative;
+    background-color: #b14778;
+    border-radius: 70%;
+    margin: 50px;
+    box-shadow: 5px 20px 50px #000;
+    align-self: center;
+    cursor: pointer;
+}
+
+h2{
+    text-decoration:line-through;
+}
+
+/*Images */
+
+img{
+    width: 20%;
+}
+
+div#storedImages{
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    flex-grow: 1;
+    flex-shrink: initial;
+    z-index: -1;
+}
+
+img#firstT{
+    align-self: center;
+    order: 2;
+}
+
+img#secondT{
+    align-self: center;
+    order: 1;
+}
+
+/*Login forms */
+
+#main{
+    width: 350px;
+    height: 500px;
+    background-color: green;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 5px 20px 50px #000;
+}
+
+#chk{
+    display: none;
+}
+
+#login{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+label{
+    color: beige;
+    font-size: 2.3em;
+    justify-content: center;
+    display: flex;
+    margin: 60px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .50% ease-in-out;
+}
+
+input{
+    width: 60%;
+    height: 20px;
+    background-color: #8b3c3c;
+    justify-content: center;
+    display: flex;
+    margin: 20px auto;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+/*button styles */
+
+button{
+    width: 60%;
+    height: 40px;
+    margin: 10px auto;
+    justify-content: center;
+    display: block;
+    color: #fff;
+    background-color: #573b8a;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 20px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    transition: .2% ease-in;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: aqua;
+}
+
+/*Register form */
+
+#register{
+    height: 460px;
+    background: #eee;
+    border-radius: 60% / 10%;
+    transform: translateY(-200px);
+    transition: .50% ease-in-out;
+}
+
+#register label{
+    color: #573b8a;
+    transform: scale(.6);
+}
+
+/*Click transition */
+
+#chk:checked ~ #register{
+    transform: translateY(-500px);
+}
+
+#chk:checked ~ #register label{
+    transform: scale(1);
+}
+
+#chk:checked ~ #login label{
+    transform: scale(.6);
+}
+
+/*Keyframe animations */
+@keyframes topToBottom {
+    from {
+        transform: translateY(-200px);
+    }
+
+    to{
+        transform: translateY(0);
+    }
+}
+
+@keyframes bottomToTop {
+    from {
+        transform: translateY(200px);
+    }
+
+    to{
+        transform: translateY(0);
+    }
+}
+
+@keyframes hiddenToShow {
+    from {
+        transform: translateX(-800px);
+    }
+
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes hiddenToShow2 {
+    from {
+        transform: translateX(800px);
+    }
+
+    to{
+        transform: translateX(0);
+    }
+}
+
+#header{
+    animation: topToBottom 1s ease-in 0s 1 normal none;
+}
+
+#main{
+    animation: bottomToTop 1s ease-in 0s 1 normal none;
+}
+img#firstT{
+    animation: hiddenToShow 1s ease-in 0s 1 normal none;
+}
+
+img#secondT{
+    animation: hiddenToShow2 1s ease-in 0s 1 normal none;
+}
