@@ -10,8 +10,11 @@ function init() {
 
 function addEventListeners(){
     document.getElementById("logoutBtn").addEventListener("click", logout);
+    //document.getElementById("plagueBtn").addEventListener("click", plagueMode)
 
 }
+
+
 
 //will load in 12 posts from the API
 async function loadPosts() {
@@ -24,7 +27,14 @@ async function loadPosts() {
 
     //fetching the api information
     try {
-        const fetchedPosts = await fetch('http://microbloglite.us-east-2.elasticbeanstalk.com/api/users?limit=4&offset=0', {
+        const fetchedPosts = await fetch('http://microbloglite.us-east-2.elasticbeanstalk.com/api/posts?limit=4&offset=0', {
+            headers: {
+              'accept': 'application/json',
+              'Authorization': `Bearer ${convertJSON.token}`
+            }
+        });
+
+        const fetchedPosts2 = await fetch('http://microbloglite.us-east-2.elasticbeanstalk.com/api/users?limit=4&offset=50', {
             headers: {
               'accept': 'application/json',
               'Authorization': `Bearer ${convertJSON.token}`
@@ -37,11 +47,13 @@ async function loadPosts() {
         
         //convert the fetched object to one where we can use the objects props
         const usablePosts = await fetchedPosts.json();
+        const usableUsers = await fetchedPosts2.json();
 
         //get the length of the object
         let postsLength = Object.keys(usablePosts).length;
 
         //check if it works
+        console.log(usableUsers);
         console.log(usablePosts);
 
         //reset the posts page and display the posts
@@ -56,26 +68,21 @@ async function loadPosts() {
                 </div>`)
         }
 
+
+
         postDisplay.insertAdjacentHTML("beforeend",`<section id="trending">
             <ul>
-                <h3>Trending</h3>
-                <li id="tags">They no longer like us</li>
-                <li id="tags">Disrespecting the law</li>
-                <li id="tags">He called himself Alex</li>
-                <li id="tags">Kick is the new black plague</li>
+                <h3>Birthdays</h3>
+                <li id="tags">${usableUsers[0].username} - ${usableUsers[0].createdAt}</li>
+                <li id="tags">${usableUsers[1].username} - ${usableUsers[0].createdAt}</li>
+                <li id="tags">${usableUsers[2].username} - ${usableUsers[0].createdAt}</li>
+                <li id="tags">${usableUsers[3].username} - ${usableUsers[0].createdAt}</li>
                 <div></div>
             </ul>
         </section>
-        <section id="trending">
-            <ul>
-                <h3>Trending</h3>
-                <li id="tags">They no longer like us</li>
-                <li id="tags">Disrespecting the law</li>
-                <li id="tags">He called himself Alex</li>
-                <li id="tags">Kick is the new black plague</li>
-                <div></div>
-            </ul>
-        </section>`)
+        <p id="cornerP">Image of the day:</p>
+        <img id="cornerImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo5gqu6bKAKNsj1RNVt539Teg5ZKST8UT-tA&s" alt="Title" />
+        `)
         
     } catch (error) {
         console.error('Error fetching posts:', error);
